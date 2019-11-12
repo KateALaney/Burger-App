@@ -18,18 +18,11 @@ body {
     border: 2px solid black;
 };
 
-h1 {
+p {
     text-align: center;
-    font-family: "Yeon Sung", cursive;
-    color: white;
-    text-shadow:
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;
-};
+}
 
-h3 {
+.card-body {
     text-align: center;
     font-family: "Yeon Sung", cursive;
-};
+}

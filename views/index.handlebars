@@ -8,27 +8,45 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form>
-                <div class="form-group">
-                    <label for="formControlTextArea"><h3>Make A New Burger!</h3></label>
-                    <textarea class="form-control" id="formControlTextarea1" rows="1"></textarea>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="submitForm" placeholder="Make A Burger">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="submitBtn">Submit</button>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h3 class="card-title" id="burger">New Burgers</h3>
-                    <p></p>
+                    <h5 class="card-title" id="burger"><strong>New Burgers</strong></h5>
+                    <ul>
+                        {{#each burgers}}
+                            {{#unless devoured}}
+                                <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                                <button type="button" class="eatburger btn btn-warning" id ="eatbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-cutlery"></span></button>
+                                <hr>
+                            {{/unless}}
+                        {{/each}}
+                    </ul>
+                    <p class="card-text"></p>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card">
+            <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h3 class="card-title" id="devoured">Devoured Burgers</h3>
+                    <h5 class="card-title" id="devoured"><strong>Devoured Burgers</strong></h5>
+                    <ul>
+                        {{#each burgers}}
+                            {{#if devoured}}
+                                <span><strong> {{this.id}} - {{this.burger_name}} </strong></span>
+                                <button type="button" class="trashburger btn btn-danger" id ="trashbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
+                                <hr>
+                            {{/if}}
+                        {{/each}}
+                    </ul>
                 </div>
             </div>
         </div>
